@@ -1,0 +1,11 @@
+parameters:
+  _param:
+    linux_repo_ceph_component: jewel
+  linux:
+    system:
+      repo:
+        ceph:
+          source: "deb [arch=amd64] https://download.ceph.com/debian-${_param:linux_repo_ceph_component} ${_param:linux_system_codename} main"
+          architectures: amd64
+          key_url: "https://download.ceph.com/keys/release.asc"
+
