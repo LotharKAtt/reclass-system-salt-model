@@ -3,6 +3,7 @@ parameters:
     gerrit_pipeline_library_repo: https://github.com/Mirantis/pipeline-library
     gerrit_mk_pipelines_repo: https://github.com/Mirantis/mk-pipelines
     gerrit_decapod_pipelines_repo: https://github.com/mateuszlos/decapod-pipelines
+    gerrit_mcp_common_scripts_repo: https://github.com/Mirantis/mcp-common-scripts
   gerrit:
     client:
       project:
@@ -26,6 +27,14 @@ parameters:
           enabled: true
           description: Decapod jenkins pipelines
           upstream: ${_param:gerrit_decapod_pipelines_repo}
+          access: ${gerrit:client:default_access}
+          require_change_id: true
+          require_agreement: false
+          merge_content: true
+        mcp/mcp-common-scripts:
+          enabled: true
+          description: MCP common scripts
+          upstream: ${_param:gerrit_mcp_common_scripts_repo}
           access: ${gerrit:client:default_access}
           require_change_id: true
           require_agreement: false
